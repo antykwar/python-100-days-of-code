@@ -23,9 +23,10 @@ while True:
         break
 
     answer = True if inputYesNo(question.text + ' (true/false) ', yesVal='true', noVal='false') == 'true' else False
-    status = 'right' if answer else 'wrong'
 
+    status = 'wrong'
     if question.is_correct(answer):
+        status = 'right'
         quiz_brain.add_score()
 
     print(f'That`s {status}, your score is {quiz_brain.get_total_score()}.')
